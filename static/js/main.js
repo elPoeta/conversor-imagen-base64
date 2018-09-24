@@ -1,9 +1,30 @@
 let archivo;
 const selectFile = document.querySelector('#selectFile');
+let caja = document.querySelector('#caja');
 
-selectFile.addEventListener('change', (e)=>{
-  let files = e.target.files;
+selectFile.addEventListener('change',leer);
 
+caja.addEventListener("dragenter", e => {
+         e.preventDefault();
+  });
+
+  caja.addEventListener("dragover", e => {
+          e.preventDefault();
+});
+
+caja.addEventListener("drop", soltar);
+
+function leer(e){
+  convertir(e.target.files);
+}
+
+function soltar(e){
+  e.preventDefault();
+  convertir(e.dataTransfer.files);
+}
+
+function convertir(files){
+  
   if (files[0] && files[0].type.match(/^image\//)) {
       
       let fileReader= new FileReader();
@@ -26,9 +47,6 @@ selectFile.addEventListener('change', (e)=>{
         document.querySelector('#info').innerHTML = template;
         
       }); 
-      
-   
-    
     }else{
       let template = '';
       if(files[0]){
@@ -40,5 +58,4 @@ selectFile.addEventListener('change', (e)=>{
       document.querySelector('#info').innerHTML = '';
     }
     
-});
-
+}
