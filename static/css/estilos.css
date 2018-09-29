@@ -29,3 +29,7 @@ input{
    
 }
 
+#info p{
+    font-weight: bold;
+}
+

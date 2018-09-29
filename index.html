@@ -14,7 +14,7 @@
         <form action="">
             <fieldset>
                 <legend>Seleccionar IMG</legend>
-                <input type="file" id="selectFile">
+                <input type="file" id="selectFile" accept="image/*">
                 <div id="caja">
                     <p>O arrastre y suelte la imagen aquí</p>
                     <figure id="thumb-template">
@@ -28,8 +28,12 @@
         <textarea name="base64" id="base64" cols="89" rows="14"></textarea>
         </fieldset>
         <fieldset>
-            <legend>Status Info</legend>
-            <div id="info"></div>
+            <legend>File Info</legend>
+            <div id="info">
+                    <p>Size: <span id="size">0</span> bytes</p>
+                    <p>Caracteres: <span id="char">0</span></p>
+                    <p>Tipo: <span id="type">N/A</span></p>
+            </div>
         </fieldset>
     </div>
 </body>

@@ -40,12 +40,10 @@ function convertir(files){
         img.style.height='150px';
         document.querySelector('#thumb-template').appendChild(img);
         document.querySelector('#base64').innerHTML = e.target.result;
-        let template = 
-        `<p>Nombre: ${archivo.name}</p>
-        <p>Size: ${archivo.size} bytes</p>
-        <p>Tipo: ${archivo.type}</p>`;
-        document.querySelector('#info').innerHTML = template;
-        
+      
+        document.querySelector('#size').innerHTML = archivo.size;
+        document.querySelector('#char').innerHTML = e.target.result.length;
+        document.querySelector('#type').innerHTML = archivo.type;
       }); 
     }else{
       let template = '';
@@ -55,7 +53,9 @@ function convertir(files){
       
       document.querySelector('#thumb-template').innerHTML = template;
       document.querySelector('#base64').innerHTML = '';
-      document.querySelector('#info').innerHTML = '';
+      document.querySelector('#size').innerHTML = '0';
+      document.querySelector('#char').innerHTML = '0';
+      document.querySelector('#type').innerHTML = 'N/A';
     }
     
 }
